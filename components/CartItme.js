@@ -27,11 +27,11 @@ function CartItme({ data }) {
       <div className="w-full flex flex-col">
         <div className="flex flex-col md:flex-row justify-between">
           <div className="text-lg md:text-2xl font-semibold text-black/[0.8]">
-            {data.name}
+            {data?.name}
           </div>
 
           <div className="text-sm md:text-md font-medium text-black/[0.5] block md:hidden">
-            {data.subtitle}
+            {data?.subtitle}
           </div>
 
           <div className="text-sm md:text-md font-bold text-black/[0.5]">
@@ -40,7 +40,7 @@ function CartItme({ data }) {
         </div>
 
         <div className="text-md font-medium text-blck/[0.5] hidden md:block">
-          {data.subtitle}
+          {data?.subtitle}
         </div>
 
         <div className="flex items-center justify-between mt-4">
@@ -55,13 +55,13 @@ function CartItme({ data }) {
                   updateCartItem(e, "selectedSize");
                 }}
               >
-                {data.size.data.map((item, i) => {
+                {data?.size.data.map((item, i) => {
                   return (
                     <option
                       key={i}
                       value={item.size}
                       disabled={!item.enabled ? true : false}
-                      selected={data.selectedSize === item.size}
+                      selected={data?.selectedSize === item.size}
                     >
                       {item.size}
                     </option>
@@ -82,7 +82,7 @@ function CartItme({ data }) {
               >
                 {Array.from({ length: 10 }, (_, i) => i + 1).map((q, i) => {
                   return (
-                    <option key={i} value={q} selected={data.quantity === q}>
+                    <option key={i} value={q} selected={data?.quantity === q}>
                       {q}
                     </option>
                   );
@@ -92,7 +92,7 @@ function CartItme({ data }) {
           </div>
 
           <RiDeleteBin6Line 
-          onClick={()=>{dispatch(removeFromCart({id: data.id}))}}
+          onClick={()=>{dispatch(removeFromCart({id: data?.id}))}}
           className="cursor-pointer text-black/[0.5] hover:text-black text-[16px] md:text-[20px]" />
         </div>
       </div>

@@ -190,7 +190,7 @@ export async function getServerSideProps(context) {
 
   try {
     const product = await fetchDataFromApi(
-      `/api/products?populate= *&filters[slug][$eqi]=${slug}`,
+      `/api/products?populate=*&filters[slug][$eq]=${slug}`,
       false
     );
 
