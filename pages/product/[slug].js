@@ -118,7 +118,7 @@ function Productdetails({ product, products }) {
             </div>
 
             <button
-              className="w-full py-4 rounded-full bg-black text-white text-lg font-medium transition-transform activate:scale-95 mb-3 hover:opacituy-75"
+              className="w-full py-4 rounded-full bg-black text-white text-lg font-medium transition-transform activate:scale-95 mb-3 hover:opacity-75"
               onClick={() => {
                 if (!selectedSize) {
                   setShowErro(true);
@@ -190,7 +190,7 @@ export async function getServerSideProps(context) {
 
   try {
     const product = await fetchDataFromApi(
-      `/api/products?populate=*&filters[slug][$eqi]=${slug}`,
+      `/api/products?populate= *&filters[slug][$eqi]=${slug}`,
       false
     );
 

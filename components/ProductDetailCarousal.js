@@ -11,7 +11,7 @@ function ProductDetailCarousal({ images = [] }) {
         showIndicators={false}
         showStatus={false}
         thumbWidth={60}
-        className="ProductCarousal"
+        className="productCarousel"
       >
         {images.map((img) => (
           <img
