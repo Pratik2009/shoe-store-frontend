@@ -37,7 +37,7 @@ function ReletedProducts({product}) {
 
         
       </Carousel>
-      ;
+      
     </div>
   );
 }
