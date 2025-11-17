@@ -4,7 +4,7 @@ import Wrapper from "@/components/wrapper";
 import { fetchDataFromApi } from "@/utils/api";
 
 export default function Home({ products }) {
-  console.log(products.data[0].name);
+ 
   
   return (
     <main>
@@ -48,7 +48,7 @@ export async function getServerSideProps(){
 
     return{
       props:{
-        products,
+        products:[],
       }
     }
     

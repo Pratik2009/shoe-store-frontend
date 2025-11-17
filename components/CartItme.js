@@ -3,6 +3,11 @@ import React from "react";
 import { updateCart, removeFromCart } from "@/store/cartSlice";
 import { useDispatch } from "react-redux";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import { useState, useEffect } from "react";
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
+
+
 function CartItme({ data }) {
   const dispatch = useDispatch();
   const updateCartItem = (e, key) => {
@@ -13,15 +18,31 @@ function CartItme({ data }) {
     };
     dispatch(updateCart(payload));
   };
+
+
+  const [
+    Loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => setLoading(false), 800);
+  }, []);
   return (
     <div className="flex py-5 gap-3 md:gap-5 border-b">
       <div className="shrink-0 aspect-square w-[50px] md:w-[120px]">
+        {Loading
+          ? [Array].map((p, idx) => (
+              <div className="col" key={idx}>
+                 <Skeleton width={386} height={350} />
+               
+              </div>
+            ))
+          :
         <Image
           src={data?.thumbnail?.url}
           alt={data.name}
           width={120}
           height={120}
-        />
+        />}
       </div>
 
       <div className="w-full flex flex-col">
